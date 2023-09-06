@@ -23,9 +23,9 @@ jobs:
           git checkout $TARGET_BRANCH       # checkout to your branch
           #git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
           git checkout 2023-11-01 -- html
-          mkdir 2023-11-01
+          mkdir -p 2023-11-01
           rm -rf 2023-11-01/html
           mv html 2023-11-01 
-	  git add -A .
+          git add -A .
           git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
           git push origin $TARGET_BRANCH # push to remote branch
